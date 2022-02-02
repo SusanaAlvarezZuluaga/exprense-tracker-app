@@ -102,14 +102,20 @@ function TransactionForm() {
               <div
                 className="transaction-button"
                 id="expenseButton"
-                onClick={() => {
-                  setShowCategorories(!showCategories);
-                }}
+                onClick={() => setShowCategorories(!showCategories)}
               >
                 Select a Category
               </div>
             ) : (
-              <div>{category}</div>
+              <div>
+                <span
+                  class="material-icons"
+                  onClick={() => setShowCategorories(!showCategories)}
+                >
+                  edit
+                </span>
+                {category}
+              </div>
             )}
 
             <input
