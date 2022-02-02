@@ -1,6 +1,6 @@
 .category-card {
-  height: 30vw;
-  width: 30vw;
+  width: 25vw;
+  height: 25vw;
   box-sizing: border-box;
   background: linear-gradient(#dd5e89, #f7bb97);
   border-radius: 10px;
@@ -11,10 +11,21 @@
   justify-content: center;
   align-items: center;
 }
-.category-card-icon {
-  justify-content: center;
-  text-align: center;
+.category-icon {
+  font-size: 36px;
 }
 .category-card-title {
   font-size: small;
+}
+.miniature-card {
+  margin: 5px;
+  padding: 2px;
+  width: auto;
+  height: 70px;
+  font-size: 6px;
+  background: transparent;
+  border: solid 2px white;
+}
+.small-icon {
+  font-size: 20px;
 }

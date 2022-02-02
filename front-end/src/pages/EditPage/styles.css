@@ -1,27 +1,26 @@
 .small-container {
-  margin-top: 0vh;
-  margin-bottom: 2.5vh;
-  margin-left: 2%;
-  margin-right: 2%;
+  max-height: 30vh;
+  margin: 15px 2%;
   background-color: #2c2d39;
-  padding-top: 2vh;
-  padding-bottom: 3vh;
+  padding: 3vh 0;
 }
 .small-container-title {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
   font-weight: bolder;
   font-size: 20px;
-  margin-bottom: 2vh;
   display: flex;
   justify-content: space-between;
 }
 .small-container-info-holder {
+  height: 70%;
+  margin: 2% 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.swiper {
-  width: 90%;
-  margin: auto;
+.transactions-holder {
+  height: 25vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
 }

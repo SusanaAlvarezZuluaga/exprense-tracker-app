@@ -1,12 +1,30 @@
-import { SwiperSlide } from 'swiper/react/';
 import './styles.css';
-function CategoryCard({ name, icon }) {
+
+function CategoryCard({
+  name,
+  icon,
+  className,
+  setCategory,
+  setShowCategorories,
+}) {
   return (
-    <div class="category-card">
-      <div class="ctegory-card-icon">
-        <span class="material-icons md-36">{icon}</span>
-      </div>
-      <div class="category-card-title">{name}</div>
+    <div
+      className={`category-card ${className}`}
+      onClick={() => {
+        setCategory(name);
+        setShowCategorories(false);
+      }}
+    >
+      <span
+        className={
+          className
+            ? 'material-icons category-icon small-icon'
+            : 'material-icons category-icon'
+        }
+      >
+        {icon}
+      </span>
+      <div className="category-card-title">{name}</div>
     </div>
   );
 }

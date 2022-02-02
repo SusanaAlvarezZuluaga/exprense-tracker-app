@@ -3,7 +3,7 @@ import AddTransactionPage from './pages/AddTransactionPage';
 import EditPage from './pages/EditPage';
 import StatsPage from './pages/StatsPage';
 import ProfilePage from './pages/ProfilePage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>

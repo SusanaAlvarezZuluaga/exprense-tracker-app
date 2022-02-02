@@ -2,11 +2,12 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #23242e;
   color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 2.5%;
 }
 .header-container {
+  width: 100%;
   padding-top: 2vh;
+  height: 10vh;
 }
 
 .user-greet {
@@ -15,6 +16,8 @@ body {
 }
 
 .page-title {
+  display: flex;
+  justify-content: flex-start;
   font-size: 30px;
   font-weight: bold;
 }
