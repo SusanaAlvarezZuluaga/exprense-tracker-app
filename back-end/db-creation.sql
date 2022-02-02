@@ -1,0 +1,42 @@
+DROP DATABASE IF EXISTS  expenseApp;
+CREATE DATABASE expenseApp;
+USE expenseApp;
+
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE `user` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL
+  );
+
+
+  
+DROP TABLE IF EXISTS category;
+CREATE TABLE `category` (
+  `id` INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `icon` VARCHAR(255) NOT NULL
+  );
+  
+DROP TABLE IF EXISTS expense;
+CREATE TABLE IF NOT EXISTS `expense` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `Type` VARCHAR(32) NOT NULL,
+  `Date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `category_id` INT NOT NULL,
+  `amount` DECIMAL(5,2) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(500) NOT NULL,
+  CONSTRAINT `user_fk`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `category_fk`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `category` (`id`)
+    ON DELETE CASCADE
+);
+
+

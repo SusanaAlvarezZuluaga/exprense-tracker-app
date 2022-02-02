@@ -1,0 +1,26 @@
+.footer-container {
+  width: 90%;
+  background-color: #23242e;
+  position: fixed;
+  bottom: 0;
+  height: 7vh;
+  display: flex;
+  justify-content: space-around;
+  border: solid 2px white;
+  border-radius: 15px;
+}
+.footer-element {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+  color: white;
+  border-radius: 50%;
+  padding: 5%;
+}
+.selected {
+  height: 0px;
+  border: solid 2px;
+  border-image: linear-gradient(#dd5e89, #f7bb97) 1;
+}

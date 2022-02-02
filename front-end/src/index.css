@@ -1,0 +1,20 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #23242e;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.header-container {
+  padding-top: 2vh;
+}
+
+.user-greet {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: bold;
+}
