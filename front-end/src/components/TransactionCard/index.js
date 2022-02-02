@@ -1,6 +1,6 @@
 import './styles.css';
-function TransactionCard(props) {
-  const { type, paymentMethod, category, amount, name } = props;
+
+function TransactionCard({ type, paymentMethod, category, amount, name }) {
   return (
     <div class="transaction-card">
       <div class="transaction-category">

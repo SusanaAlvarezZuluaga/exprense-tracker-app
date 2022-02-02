@@ -1,0 +1,20 @@
+.category-card {
+  height: 30vw;
+  width: 30vw;
+  box-sizing: border-box;
+  background: linear-gradient(#dd5e89, #f7bb97);
+  border-radius: 10px;
+  box-shadow: rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px,
+    inset rgba(white, 0.5) 0 0 0 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.category-card-icon {
+  justify-content: center;
+  text-align: center;
+}
+.category-card-title {
+  font-size: small;
+}
