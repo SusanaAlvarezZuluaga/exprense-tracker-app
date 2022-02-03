@@ -1,0 +1,8 @@
+.logout-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: linear-gradient(#dd5e89, #f7bb97);
+  color: white;
+  border: none;
+}

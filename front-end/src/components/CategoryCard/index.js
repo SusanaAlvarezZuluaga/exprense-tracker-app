@@ -12,8 +12,10 @@ function CategoryCard({
     <div
       className={`category-card ${className}`}
       onClick={() => {
-        setCategoryId(id);
-        setShowCategorories(false);
+        if (setCategoryId && setShowCategorories) {
+          setCategoryId(id);
+          setShowCategorories(false);
+        }
       }}
     >
       <span
