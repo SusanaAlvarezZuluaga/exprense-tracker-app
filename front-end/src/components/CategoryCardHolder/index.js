@@ -1,16 +1,22 @@
-import { useContext } from 'react';
+import { useEffect, useState } from 'react';
+
+import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
 import CategoryCard from '../../components/CategoryCard';
-import CategoryListContext from '../../contexts/CategoryList/CategoryListContext';
 
 import './styles.css';
 
 function CategoryCardHolder() {
-  const categoryListContext = useContext(CategoryListContext);
-  const { categoryList, setCategoryList } = categoryListContext;
+  axios.defaults.withCredentials = true;
+  const [categoryList, setCategoryList] = useState([]);
+  async function getCategories() {
+    const response = await axios.get('http://localhost:4000/api/categories');
+    setCategoryList(response.data);
+  }
+  useEffect(() => getCategories(), []);
   return (
     <Swiper className="categories-swiper" slidesPerView={3}>
       <SwiperSlide>
@@ -19,7 +25,7 @@ function CategoryCardHolder() {
 
       {categoryList.map((category) => (
         <>
-          <SwiperSlide>
+          <SwiperSlide key={category.id}>
             <CategoryCard {...category} />
           </SwiperSlide>
         </>

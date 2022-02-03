@@ -4,36 +4,36 @@ import { useNavigate } from 'react-router-dom';
 import TransactionListContext from '../../contexts/TransactionList/TransactionListContext';
 import CategoryPicker from '../CategoryPicker';
 import './styles.css';
-
+import axios from 'axios';
 function TransactionForm() {
   const [type, setType] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [date, setDate] = useState('');
-  const [category, setCategory] = useState('');
+  const [categoryId, setCategoryId] = useState(null);
   const [amount, setAmount] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
   const [showCategories, setShowCategorories] = useState(false);
 
-  const transactionListContext = useContext(TransactionListContext);
-  const { transactionList, setTransactionList } = transactionListContext;
-
   const redirect = useNavigate();
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const newTransaction = {
       type: type,
-      paymentMethod: paymentMethod,
-      category: category,
+      payment_method: paymentMethod,
+      category_id: categoryId,
       date: date,
-      category: category,
       amount: amount,
       name: name,
       description: description,
     };
-    console.log(newTransaction);
-    setTransactionList([...transactionList, newTransaction]);
+    const response = await axios.post(
+      'http://localhost:4000/api/transactions',
+      newTransaction
+    );
+    console.log(response);
+    //setTransactionList([...transactionList, newTransaction]);
     redirect('/edit');
   }
   return (
@@ -98,7 +98,7 @@ function TransactionForm() {
               required
               onChange={(e) => setDate(e.target.value)}
             />
-            {category === '' ? (
+            {!categoryId ? (
               <div
                 className="transaction-button"
                 id="expenseButton"
@@ -114,7 +114,7 @@ function TransactionForm() {
                 >
                   edit
                 </span>
-                {category}
+                {categoryId}
               </div>
             )}
 
@@ -148,7 +148,7 @@ function TransactionForm() {
 
       {showCategories ? (
         <CategoryPicker
-          setCategory={setCategory}
+          setCategoryId={setCategoryId}
           setShowCategorories={setShowCategorories}
         />
       ) : null}

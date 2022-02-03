@@ -1,38 +1,50 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import TransactionListContext from '../../contexts/TransactionList/TransactionListContext';
+import axios from 'axios';
+
 import CategoryCardHolder from '../../components/CategoryCardHolder';
 import TransactionCard from '../../components/TransactionCard';
 import NavBar from '../../components/NavBar';
 
 import './styles.css';
-
 function EditPage() {
-  const transactionListContext = useContext(TransactionListContext);
-  const { transactionList, setTransactionList } = transactionListContext;
+  const [transactionList, setTransactionList] = useState([]);
 
+  axios.defaults.withCredentials = true;
+  async function getTransactions() {
+    try {
+      const response = await axios.get(
+        'http://localhost:4000/api/transactions'
+      );
+      console.log(response.data);
+      setTransactionList(response.data);
+    } catch (err) {
+      console.log('err');
+    }
+  }
+  useEffect(() => getTransactions(), []);
   return (
-    <div class="edit-page">
-      <div class="header-container">
-        <div class="page-title">EDIT</div>
+    <div className="edit-page">
+      <div className="header-container">
+        <div className="page-title">EDIT</div>
       </div>
 
-      <div class="small-container">
-        <div class="small-container-title">Categories</div>
-        <div class="small-container-info-holder">
+      <div className="small-container">
+        <div className="small-container-title">Categories</div>
+        <div className="small-container-info-holder">
           <CategoryCardHolder />
         </div>
       </div>
 
-      <div class="small-container">
-        <div class="small-container-title">
+      <div className="small-container">
+        <div className="small-container-title">
           Transactions
-          <span class="material-icons md-24">add_circle_outline</span>
+          <span className="material-icons md-24">add_circle_outline</span>
         </div>
-        <div class="small-container-info-holder">
+        <div className="small-container-info-holder">
           <div className="transactions-holder">
             {transactionList.map((transaction) => (
-              <TransactionCard {...transaction} />
+              <TransactionCard key={transaction.id} {...transaction} />
             ))}
           </div>
         </div>

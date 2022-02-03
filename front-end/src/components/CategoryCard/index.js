@@ -1,17 +1,18 @@
 import './styles.css';
 
 function CategoryCard({
+  id,
   name,
   icon,
   className,
-  setCategory,
+  setCategoryId,
   setShowCategorories,
 }) {
   return (
     <div
       className={`category-card ${className}`}
       onClick={() => {
-        setCategory(name);
+        setCategoryId(id);
         setShowCategorories(false);
       }}
     >

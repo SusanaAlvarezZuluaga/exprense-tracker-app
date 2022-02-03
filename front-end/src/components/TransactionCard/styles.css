@@ -40,17 +40,15 @@
   font-size: 8px;
   color: #2c2d39;
 }
-.transaction-amount-income {
+.transaction-amount {
   flex: 1;
   padding-left: 5px;
   padding-right: 5px;
-  color: rgb(245, 78, 78);
   font-weight: 600;
 }
-.transaction-amount-expense {
-  flex: 1;
-  padding-left: 5px;
-  padding-right: 5px;
+.income {
   color: rgb(71, 109, 0);
-  font-weight: 600;
+}
+.expense {
+  color: rgb(245, 78, 78);
 }
